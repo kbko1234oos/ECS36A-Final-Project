@@ -4,12 +4,13 @@
 #include "commands.h"
 
 int main(int argc, char** argv){
-	//Read in argc
+	//Read in and input validate argc/argv
 	if(correctNumArgs(argc)&&argvInputIsValid(*argv[1], *argv[2])){
-		makeMatrix(argv[1], argv[2]);
-		printf("making custom matrix\n");
+		//make custom size canvas
+		makeCanvas(argv[1], argv[2]);
 	}else{
-		makeMatrix(10, 10);
+		//make 10x10 canvas
+		makeCanvas(10, 10);
 	}
 
   //Create empty canvas and check for 2 args for custom size
