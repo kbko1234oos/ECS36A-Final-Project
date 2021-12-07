@@ -1,0 +1,33 @@
+#include <stdlib.h>
+#include "canvas.h"
+
+void resize_canvas(canvas* old_canvas, int input_row, int input_col) {
+    new_canvas = (canvas*)calloc(1, sizeof(canvas));
+    makeCanvas(new_canvas, new_row_nums, new_col_nums, blank_char);
+    copy_canvas(old_canvas, new_canvas, input_row, input_col);
+
+}
+
+void copy_canvas(canvas* old_canvas, canvas* new_canvas, int input_row, int input_col) {
+    int row_limit = 0;
+    int col_limit = 0;
+
+    //Sets the limit of the row and col index to whatever is smaller when comparing
+    //between the input # and the old canvas #.
+    if (input_row < old_canvas->numRows) {
+        row_limit = input_row;
+    } else {
+        row_limit = old_canvas->numRows;
+    }
+    if (input_col < old_canvas->numCols) {
+        row_limit = input_row;
+    } else {
+        row_limit = old_canvas->numCols;
+    }
+
+    for (int i = 0; i < row_limit; ++i) {
+        for (int j = 0; j < col_limit; ++j) {
+            (new_canvas->array)[i][j] = (old_canvas->array)[i][j];
+        }
+    }
+}

@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include "commands.h"
 #include "canvas.h"
+#include "resize.h"
+#include "add.h"
 
 //HELLO KBBBB
 int main(int argc, char** argv){
