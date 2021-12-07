@@ -4,6 +4,7 @@
 #include "commands.h"
 #include "canvas.h"
 
+//HELLO KBBBB
 int main(int argc, char** argv){
 	canvas* drawingCanvas = (canvas*)calloc(1, sizeof(canvas));
 	drawingCanvas->blankChar = '*';
