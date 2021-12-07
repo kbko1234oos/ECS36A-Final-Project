@@ -5,20 +5,20 @@
 #include "canvas.h"
 
 int main(int argc, char** argv){
-	canvas* drawingCanvas = (canvas*)calloc(1, sizeof(canvas));;
-	char blankChar = '*';
+	canvas* drawingCanvas = (canvas*)calloc(1, sizeof(canvas));
+	drawingCanvas->blankChar = '*';
 
 	//Read in and input validate argc/argv
-	printf("1\n");
 	if(correctNumArgs(argc) && argvInputIsValid(*argv[1], *argv[2])){
-		//make custom size canvas IF correctNumberOfArguments and argsAreInts
-		printf("1\n");
-		makeCanvas(drawingCanvas, atoi(argv[1]), atoi(argv[2]), blankChar);
+		//make canvas size customizable IF correctNumberOfArguments and argsAreInts
+		drawingCanvas->numRows = atoi(argv[1]);
+		drawingCanvas->numCols = atoi(argv[2]);
 	}else{
-		//make 10x10 canvas
-		printf("1\n");
-		makeCanvas(drawingCanvas, 10, 10, blankChar);
+		//make canvas size 10x10
+		drawingCanvas->numRows = 10;
+		drawingCanvas->numCols = 10;
 	}
+	makeCanvas(drawingCanvas);
 
   //Create empty canvas and check for 2 args for custom size
 	//Create and Output blank board
