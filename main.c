@@ -24,7 +24,9 @@ int main(int argc, char** argv){
 	//Create and Output blank board
 
 	//Ask for command
-	askAndExecute_for_command_type();
+	do {
+		askAndExecute_for_command_type();
+	}while(true);
 
 
 	return 0;

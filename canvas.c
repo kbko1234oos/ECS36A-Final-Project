@@ -4,8 +4,9 @@
 #include "canvas.h"
 
 void makeCanvas(canvas* drawingCanvas){
-		//Allocate space for canvas
+		//Allocate space for canvas and set drawingCanvas as empy allocated space
 		drawingCanvas->array = create_canvas_array(drawingCanvas->numRows, drawingCanvas->numCols);
+		//Fill drawingCanvas with it's drawingCanvas
     fillArrayWithChar(&(drawingCanvas->array), drawingCanvas->numRows, drawingCanvas->numCols, drawingCanvas->blankChar);
 }
 

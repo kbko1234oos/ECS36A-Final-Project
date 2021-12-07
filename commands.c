@@ -17,41 +17,55 @@ bool argvInputIsValid(char c1, char c2){
 	return false;
 }
 
+void print_help(){
+  printf("Commands:\n");
+  printf("Help: h\n");
+  printf("Quit: q\n");
+  printf("Draw line: w row_start col_start row_end col_end\n");
+  printf("Resize: r num_rows num_cols\n");
+  printf("Add row or column: a [r | c] pos\n");
+  printf("Delete row or column: d [r | c] pos\n");
+  printf("Erase: e row col\n");
+  printf("Save: s file_name\n");
+  printf("Load: l file_name\n");
+}
+
+
 void askAndExecute_for_command_type(){
 		char commandLetter;
     printf("Enter your command: ");
-		scanf("%c", &commandLetter);
-
+		scanf(" %c", &commandLetter);
 		switch (commandLetter) {
             case 'q':
-                printf("quit");
-                break;
+								//(q)uit
+								exit(0);
 						case 'h':
-                printf("help");
+								//(h)elp
+                print_help();
                 break;
 						case 'w':
-                printf("write");
+                printf("write\n");
                 break;
 						case 'e':
-                printf("erase");
+                printf("erase\n");
                 break;
 						case 'r':
-                printf("read");
+                printf("read\n");
                 break;
 						case 'a':
-                printf("add");
+                printf("add\n");
                 break;
 						case 'd':
-                printf("delete");
+                printf("delete\n");
                 break;
             case 's':
-                printf("save");
+                printf("save\n");
                 break;
 						case 'l':
-                printf("load");
+                printf("load\n");
                 break;
             default:
-                printf("Out of range");
+                printf("Out of range\n");
                 break;
         }
 }
