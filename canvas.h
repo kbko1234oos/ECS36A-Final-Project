@@ -9,7 +9,8 @@
 		int numCols;
   }canvas;
 
-	canvas makeCanvas(canvas drawingCanvas, int numRows, int numCols, char blankChar);
+	void makeCanvas(canvas* drawingCanvas, int numRows, int numCols, char blankChar);
+	char** create_canvas_array(int numRows, int numCols);
 	void makeArrayBlank(char** array, int numRows, int numCols, char blankChar);
 
 #endif
