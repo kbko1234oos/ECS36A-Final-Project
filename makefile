@@ -19,5 +19,8 @@ add.o: add.c add.h canvas.h
 delete.o: delete.c delete.h add.h canvas.h
 	gcc -g -Wall -Werror -c delete.c
 
+make.o: make.c make.h write.h canvas.h
+	gcc -g -Wall -Werror -c make.c
+
 clean:
 	rm -rf *.o *.out

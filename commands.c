@@ -12,10 +12,17 @@ bool correctNumArgs(int argc) {
 }
 
 bool argvInputIsValid(char c1, char c2) {
-  if (isdigit(c1) && isdigit(c2)) {
-    return true;
-  }
-  return false;
+  if (isdigit(c1)) {
+		if(isdigit(c2)) {
+			return true;
+		}else{
+			printf("The number of columns is not an integer.\n");
+			return false;
+		}
+  }else{
+		printf("The number of rows is not an integer.\n");
+		return false;
+	}
 }
 
 void print_help() {
@@ -65,7 +72,8 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       printOutCanvas(drawingCanvas);
       break;
     default:
-      printOutCanvas(drawingCanvas);
+      printf("Unrecognized command. Type h for help.\n");
+			printOutCanvas(drawingCanvas);
       break;
   }
 }
