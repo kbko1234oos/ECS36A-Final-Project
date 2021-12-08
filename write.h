@@ -1,5 +1,6 @@
 #ifndef WRITE_H
 #define WRITE_H
+  #include "canvas.h"
   typedef struct point_struct {
     int x;
     int y;
@@ -15,4 +16,7 @@
     double slope;
     line_type type;
   }line;
+
+  void write_line(canvas* drawing_canvas, line* input_line, int input);
+  void switch_coords(line* input_line);
 #endif
