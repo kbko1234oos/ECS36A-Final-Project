@@ -6,7 +6,7 @@
 #include "resize.h"
 #include "add.h"
 
-//HELLO KBBBB
+//HELLO KBBBB v
 int main(int argc, char** argv){
 	canvas* drawingCanvas = (canvas*)calloc(1, sizeof(canvas));
 	drawingCanvas->blankChar = '*';
