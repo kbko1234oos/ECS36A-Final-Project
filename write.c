@@ -51,12 +51,12 @@ void write_line(canvas* drawing_canvas, line* input_line, int input) {
   }
 }
 
-void format_x_coords(line* input_line) {
-  if (input_line->p1.x > input_line->p2.x) {
-    int temp = input_line->p1.x;
-    input_line->p1.x = input_line->p2.x;
-    input_line->p2.x = temp;
-  }
+void switch_coords(line* input_line) {
+  int temp = input_line->p1.x;
+  input_line->p1.x = input_line->p2.x;
+  input_line->p2.x = temp;
+
+  
 }
 
 void format_y_coords(line* input_line) {
