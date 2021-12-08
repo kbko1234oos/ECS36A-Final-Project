@@ -25,6 +25,11 @@ bool argvInputIsValid(char c1, char c2) {
 	}
 }
 
+bool validateInputs(int* arrayOfArgs){
+
+ return false;
+}
+
 void print_help() {
   printf("Commands:\n");
   printf("Help: h\n");
@@ -40,14 +45,17 @@ void print_help() {
 
 void askAndExecute_for_command_type(canvas* drawingCanvas) {
   char commandLetter;
+	int* arrayOfArgs;
+	int numArguments;
+
   printf("Enter your command: ");
   scanf(" %c", &commandLetter);
   switch (commandLetter) {
     case 'q':
-      //(q)uit
+      //(q)uit DONE
       exit(0);
     case 'h':
-      //(h)elp
+      //(h)elp DONE
       print_help();
       break;
     case 'w':
@@ -56,6 +64,8 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       break;
     case 'e':
 			//(e)rase
+			validateInputs(arrayOfArgs, num);
+			erase_char(drawingCanvas, arrayOfArgs[0], arrayOfArgs[1])
       printOutCanvas(drawingCanvas);
       break;
     case 'r':
