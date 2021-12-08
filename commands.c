@@ -51,24 +51,31 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       print_help();
       break;
     case 'w':
+			//(w)write
       printOutCanvas(drawingCanvas);
       break;
     case 'e':
+			//(e)rase
       printOutCanvas(drawingCanvas);
       break;
     case 'r':
+			//(r)esize
       printOutCanvas(drawingCanvas);
       break;
     case 'a':
+			//(a)dd
       printOutCanvas(drawingCanvas);
       break;
     case 'd':
+			//(d)elete
       printOutCanvas(drawingCanvas);
       break;
     case 's':
+			//(s)ave
       printOutCanvas(drawingCanvas);
       break;
     case 'l':
+			//(l)oad
       printOutCanvas(drawingCanvas);
       break;
     default:

@@ -1,5 +1,5 @@
-paint.out: main.o commands.o canvas.o resize.o add.o delete.o
-	gcc -g -Wall -Werror -o paint.out main.o commands.o canvas.o resize.o add.o
+paint.out: main.o commands.o canvas.o resize.o add.o delete.o write.o erase.o
+	gcc -g -Wall -Werror -o paint.out main.o commands.o canvas.o resize.o add.o delete.o write.o erase.o
 
 main.o: main.c commands.h
 	gcc -g -Wall -Werror -c main.c
@@ -19,8 +19,10 @@ add.o: add.c add.h canvas.h
 delete.o: delete.c delete.h add.h canvas.h
 	gcc -g -Wall -Werror -c delete.c
 
-make.o: make.c make.h write.h canvas.h
-	gcc -g -Wall -Werror -c make.c
+write.o: write.c write.h canvas.h
+	gcc -g -Wall -Werror -c write.c
 
+erase.o: erase.c canvas.h
+	gcc -g -Wall -Werror -c erase.c
 clean:
 	rm -rf *.o *.out

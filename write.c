@@ -42,7 +42,6 @@ void write_line(canvas* drawing_canvas, line* input_line, int input) {
       if (input_line->p1.x > input_line->p2.x) {
         switch_coords(input_line);
       }
-      int coord_diff = input_line->p1.x - input_line->p1.y;
       for (int i = input_line->p1.x; i < input_line->p2.x; ++i) {
         (drawing_canvas->array)[input_line->p1.y + i][input_line->p1.x + i] =
             '/';

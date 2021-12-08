@@ -37,9 +37,9 @@ void printOutCanvas(canvas* drawingCanvas) {
     }
     printf("\n");
   }
-  printf(" ");
+  printf("  ");
   for (int k = 0; k < drawingCanvas->numCols; ++k) {
-    printf(" %d", k);
+    printf("%d ", k);
   }
   printf("\n");
 }
