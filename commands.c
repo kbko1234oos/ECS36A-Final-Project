@@ -2,22 +2,30 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "commands.h"
+#include "canvas.h"
 
-bool correctNumArgs(int argc){
-	if(argc == 3){
-		return true;
-	}
-	return false;
+bool correctNumArgs(int argc) {
+  if (argc == 3) {
+    return true;
+  }
+  return false;
 }
 
-bool argvInputIsValid(char c1, char c2){
-	if( isdigit(c1) && isdigit(c2) ){
-		return true;
+bool argvInputIsValid(char c1, char c2) {
+  if (isdigit(c1)) {
+		if(isdigit(c2)) {
+			return true;
+		}else{
+			printf("The number of columns is not an integer.\n");
+			return false;
+		}
+  }else{
+		printf("The number of rows is not an integer.\n");
+		return false;
 	}
-	return false;
 }
 
-void print_help(){
+void print_help() {
   printf("Commands:\n");
   printf("Help: h\n");
   printf("Quit: q\n");
@@ -30,42 +38,49 @@ void print_help(){
   printf("Load: l file_name\n");
 }
 
-
-void askAndExecute_for_command_type(){
-		char commandLetter;
-    printf("Enter your command: ");
-		scanf(" %c", &commandLetter);
-		switch (commandLetter) {
-            case 'q':
-								//(q)uit
-								exit(0);
-						case 'h':
-								//(h)elp
-                print_help();
-                break;
-						case 'w':
-                printf("write\n");
-                break;
-						case 'e':
-                printf("erase\n");
-                break;
-						case 'r':
-                printf("read\n");
-                break;
-						case 'a':
-                printf("add\n");
-                break;
-						case 'd':
-                printf("delete\n");
-                break;
-            case 's':
-                printf("save\n");
-                break;
-						case 'l':
-                printf("load\n");
-                break;
-            default:
-                printf("Out of range\n");
-                break;
-        }
+void askAndExecute_for_command_type(canvas* drawingCanvas) {
+  char commandLetter;
+  printf("Enter your command: ");
+  scanf(" %c", &commandLetter);
+  switch (commandLetter) {
+    case 'q':
+      //(q)uit
+      exit(0);
+    case 'h':
+      //(h)elp
+      print_help();
+      break;
+    case 'w':
+			//(w)write
+      printOutCanvas(drawingCanvas);
+      break;
+    case 'e':
+			//(e)rase
+      printOutCanvas(drawingCanvas);
+      break;
+    case 'r':
+			//(r)esize
+      printOutCanvas(drawingCanvas);
+      break;
+    case 'a':
+			//(a)dd
+      printOutCanvas(drawingCanvas);
+      break;
+    case 'd':
+			//(d)elete
+      printOutCanvas(drawingCanvas);
+      break;
+    case 's':
+			//(s)ave
+      printOutCanvas(drawingCanvas);
+      break;
+    case 'l':
+			//(l)oad
+      printOutCanvas(drawingCanvas);
+      break;
+    default:
+      printf("Unrecognized command. Type h for help.\n");
+			printOutCanvas(drawingCanvas);
+      break;
+  }
 }
