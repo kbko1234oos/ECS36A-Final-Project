@@ -43,12 +43,7 @@ void write_line(canvas* drawing_canvas, line* input_line, int input) {
         switch_coords(input_line);
       }
       for (int i = input_line->p1.x; i < input_line->p2.x; ++i) {
-<<<<<<< HEAD
         (drawing_canvas->array)[input_line->p1.y + i][input_line->p1.x + i] = '/';
-=======
-        (drawing_canvas->array)[input_line->p1.y + i][input_line->p1.x + i] =
-            '/';
->>>>>>> 223f55c93e1739759fda2164b07df363223ab380
       }
       break;
     case neg_diag:
@@ -56,12 +51,7 @@ void write_line(canvas* drawing_canvas, line* input_line, int input) {
         switch_coords(input_line);
       }
       for (int i = input_line->p1.x; i < input_line->p2.x; ++i) {
-<<<<<<< HEAD
         (drawing_canvas->array)[input_line->p1.y - i][input_line->p1.x + i] = '/';
-=======
-        (drawing_canvas->array)[input_line->p1.y - i][input_line->p1.x + i] =
-            '/';
->>>>>>> 223f55c93e1739759fda2164b07df363223ab380
       }
       break;
     default:
@@ -77,8 +67,5 @@ void switch_coords(line* input_line) {
   temp = input_line->p1.y;
   input_line->p1.y = input_line->p2.y;
   input_line->p2.y = temp;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 223f55c93e1739759fda2164b07df363223ab380
+
