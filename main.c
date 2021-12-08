@@ -28,7 +28,7 @@ int main(int argc, char** argv){
 
 	//Ask for command
 	do {
-		askAndExecute_for_command_type();
+		askAndExecute_for_command_type(drawingCanvas);
 	}while(true);
 
 

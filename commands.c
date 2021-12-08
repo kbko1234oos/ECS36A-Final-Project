@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "commands.h"
+#include "canvas.h"
+
 
 bool correctNumArgs(int argc){
 	if(argc == 3){
@@ -31,7 +33,7 @@ void print_help(){
 }
 
 
-void askAndExecute_for_command_type(){
+void askAndExecute_for_command_type(canvas* drawingCanvas){
 		char commandLetter;
     printf("Enter your command: ");
 		scanf(" %c", &commandLetter);
@@ -45,6 +47,7 @@ void askAndExecute_for_command_type(){
                 break;
 						case 'w':
                 printf("write\n");
+								printOutCanvas(drawingCanvas);
                 break;
 						case 'e':
                 printf("erase\n");
