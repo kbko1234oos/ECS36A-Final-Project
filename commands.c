@@ -4,22 +4,21 @@
 #include "commands.h"
 #include "canvas.h"
 
-
-bool correctNumArgs(int argc){
-	if(argc == 3){
-		return true;
-	}
-	return false;
+bool correctNumArgs(int argc) {
+  if (argc == 3) {
+    return true;
+  }
+  return false;
 }
 
-bool argvInputIsValid(char c1, char c2){
-	if( isdigit(c1) && isdigit(c2) ){
-		return true;
-	}
-	return false;
+bool argvInputIsValid(char c1, char c2) {
+  if (isdigit(c1) && isdigit(c2)) {
+    return true;
+  }
+  return false;
 }
 
-void print_help(){
+void print_help() {
   printf("Commands:\n");
   printf("Help: h\n");
   printf("Quit: q\n");
@@ -32,43 +31,41 @@ void print_help(){
   printf("Load: l file_name\n");
 }
 
-
-void askAndExecute_for_command_type(canvas* drawingCanvas){
-		char commandLetter;
-    printf("Enter your command: ");
-		scanf(" %c", &commandLetter);
-		switch (commandLetter) {
-            case 'q':
-								//(q)uit
-								exit(0);
-						case 'h':
-								//(h)elp
-                print_help();
-                break;
-						case 'w':
-                printf("write\n");
-								printOutCanvas(drawingCanvas);
-                break;
-						case 'e':
-                printf("erase\n");
-                break;
-						case 'r':
-                printf("read\n");
-                break;
-						case 'a':
-                printf("add\n");
-                break;
-						case 'd':
-                printf("delete\n");
-                break;
-            case 's':
-                printf("save\n");
-                break;
-						case 'l':
-                printf("load\n");
-                break;
-            default:
-                printf("Out of range\n");
-                break;
-        }
+void askAndExecute_for_command_type(canvas* drawingCanvas) {
+  char commandLetter;
+  printf("Enter your command: ");
+  scanf(" %c", &commandLetter);
+  switch (commandLetter) {
+    case 'q':
+      //(q)uit
+      exit(0);
+    case 'h':
+      //(h)elp
+      print_help();
+      break;
+    case 'w':
+      printOutCanvas(drawingCanvas);
+      break;
+    case 'e':
+      printOutCanvas(drawingCanvas);
+      break;
+    case 'r':
+      printOutCanvas(drawingCanvas);
+      break;
+    case 'a':
+      printOutCanvas(drawingCanvas);
+      break;
+    case 'd':
+      printOutCanvas(drawingCanvas);
+      break;
+    case 's':
+      printOutCanvas(drawingCanvas);
+      break;
+    case 'l':
+      printOutCanvas(drawingCanvas);
+      break;
+    default:
+      printOutCanvas(drawingCanvas);
+      break;
+  }
 }
