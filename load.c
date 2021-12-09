@@ -2,7 +2,12 @@
 #include <stdlib.h>
 #include "canvas.h"
 
-canvas* load_canvas(canvas* input_canvas, FILE* input_file) {
+canvas* load_canvas(canvas* input_canvas, char* file_name) {
+  FILE* input_file = fopen(file_name, "r");
+  if (input_file == NULL) {
+    printf("Could not open file %s.\n", file_name);
+  }
+
   input_canvas = (canvas*)calloc(1, sizeof(canvas));
   fscanf(input_file, "%d %d", &input_canvas->numRows, &input_canvas->numCols);
   input_canvas->blankChar = '*';
