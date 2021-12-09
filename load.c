@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "load.h"
 #include "canvas.h"
 
 canvas* load_canvas(canvas* input_canvas, char* file_name) {
@@ -10,7 +11,7 @@ canvas* load_canvas(canvas* input_canvas, char* file_name) {
 
   input_canvas = (canvas*)calloc(1, sizeof(canvas));
   input_canvas->blankChar = '*';
-  get_dimensions(input_file, &input_canvas->numRows, &input_canvas->numCols);
+  get_dimensions(input_file, &(input_canvas->numRows), &(input_canvas->numCols));
   makeCanvas(input_canvas);
   for (int i = 0; i < input_canvas->numRows; ++i) {
     for (int j = 0; j < input_canvas->numCols; ++j) {
@@ -25,7 +26,6 @@ void get_dimensions(FILE* my_txt, int* length, int* width){
   fscanf(my_txt,"%d %d", length, width);
   return;
 }
-
 
 void close_txt(FILE* my_txt){
   fclose(my_txt);
