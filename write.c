@@ -70,7 +70,6 @@ void write_line(canvas* drawing_canvas, line* input_line) {
         } else {
           (drawing_canvas->array)[input_line->p1.y - i][input_line->p1.x + i] = '\\';
         }
-        (drawing_canvas->array)[input_line->p1.y - i][input_line->p1.x + i] = '\\';
       }
       break;
     default:
