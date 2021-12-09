@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "inputValidation.h"
 #include "write.h"
+#include "canvas.h"
 
 // COPIED FROM NOTES ON G-DRIVE
 bool isValidFormat(const int numArgsRead, const int numArgsNeed) {
@@ -20,7 +21,7 @@ bool isValidFormat(const int numArgsRead, const int numArgsNeed) {
   return formatIsGood;
 }
 
-bool eraseValidation(point* erasePoint) {
+bool eraseValidation(canvas* drawingCanvas, point* erasePoint) {
   const int numArgsNeeded = 2;
   int greaterThanVal = 0;
   int numArgsRead;
@@ -28,8 +29,46 @@ bool eraseValidation(point* erasePoint) {
 
   if (!isValidFormat(numArgsRead, numArgsNeeded) ||
       (!(erasePoint->x >= greaterThanVal)) ||
-      (!(erasePoint->y >= greaterThanVal))) {
-    printf("Invalid formatting. Ending program.\n");
+      (!(erasePoint->y >= greaterThanVal)) ||
+      (!(erasePoint->x < drawingCanvas->numCols)) ||
+      (!(erasePoint->y < drawingCanvas->numRows))) {
+    printf("Improper erase command.\n");
+    return false;
+    exit(0);
+  }
+  return true;
+}
+
+bool resizeValidation(canvas* drawingCanvas, int* resizeX, int* resizeY) {
+  const int numArgsNeeded = 2;
+  int greaterThanVal = 0;
+  int numArgsRead;
+  numArgsRead = scanf(" %d %d", (resizeX), (resizeY));
+
+  if (!isValidFormat(numArgsRead, numArgsNeeded) ||
+      (!(*resizeX >= greaterThanVal)) ||
+      (!(*resizeY >= greaterThanVal)) ||
+      (!(*resizeX < drawingCanvas->numCols)) ||
+      (!(*resizeY < drawingCanvas->numRows))) {
+    printf("Improper erase command.\n");
+    return false;
+    exit(0);
+  }
+  return true;
+}
+
+bool writeValidation(canvas* drawingCanvas, point* erasePoint) {
+  const int numArgsNeeded = 2;
+  int greaterThanVal = 0;
+  int numArgsRead;
+  numArgsRead = scanf(" %d %d", &(erasePoint->x), &(erasePoint->y));
+
+  if (!isValidFormat(numArgsRead, numArgsNeeded) ||
+      (!(erasePoint->x >= greaterThanVal)) ||
+      (!(erasePoint->y >= greaterThanVal)) ||
+      (!(erasePoint->x < drawingCanvas->numCols)) ||
+      (!(erasePoint->y < drawingCanvas->numRows))) {
+    printf("Improper erase command.\n");
     return false;
     exit(0);
   }

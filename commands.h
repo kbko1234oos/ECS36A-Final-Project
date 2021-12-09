@@ -3,8 +3,7 @@
 #include <ctype.h>
 #include "canvas.h"
 #include "write.h"
-
-
+#include "resize.h"
 
 #ifndef COMMANDS_H
 #define COMMANDS_H
