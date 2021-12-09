@@ -4,12 +4,10 @@
 	#include "write.h"
 	#include "canvas.h"
 
-
   bool isValidFormat(const int numArgsRead, const int numArgsNeed);
 	bool eraseValidation(canvas* drawingCanvas, point* erasePoint) ;
 	bool resizeValidation(canvas* drawingCanvas, int* resizeX, int* resizeY);
 	bool writeValidation(canvas* drawingCanvas, line* writeLine);
-
 
 
 #endif

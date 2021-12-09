@@ -34,7 +34,6 @@ bool eraseValidation(canvas* drawingCanvas, point* erasePoint) {
       (!(erasePoint->y < drawingCanvas->numRows))) {
     printf("Improper erase command.\n");
     return false;
-    exit(0);
   }
   return true;
 }
@@ -43,8 +42,8 @@ bool resizeValidation(canvas* drawingCanvas, int* resizeX, int* resizeY) {
   const int numArgsNeeded = 2;
   int greaterThanVal = 0;
   int numArgsRead;
-  numArgsRead = scanf(" %d %d", (resizeX), (resizeY));
 
+  numArgsRead = scanf(" %d %d", (resizeX), (resizeY));
   if (!isValidFormat(numArgsRead, numArgsNeeded) ||
       (!(*resizeX >= greaterThanVal)) ||
       (!(*resizeY >= greaterThanVal)) ||
@@ -52,8 +51,8 @@ bool resizeValidation(canvas* drawingCanvas, int* resizeX, int* resizeY) {
       (!(*resizeY < drawingCanvas->numRows))) {
     printf("Improper resize command.\n");
     return false;
-    exit(0);
   }
+
   return true;
 }
 
@@ -64,7 +63,7 @@ bool writeValidation(canvas* drawingCanvas, line* writeLine) {
   numArgsRead = scanf(" %d %d %d %d", &(writeLine->p1.x), &(writeLine->p1.y), &(writeLine->p2.x), &(writeLine->p2.y));
 
   if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-
+      //(!(abs(writeLine->p1.x-writeLine->p2.x)==abs(writeLine->p1.y-writeLine->p2.y) )) ||
       (!(writeLine->p1.x >= greaterThanVal)) ||
       (!(writeLine->p1.y >= greaterThanVal)) ||
       (!(writeLine->p2.x >= greaterThanVal)) ||
@@ -75,7 +74,37 @@ bool writeValidation(canvas* drawingCanvas, line* writeLine) {
       (!(writeLine->p2.y < drawingCanvas->numRows))) {
     printf("Improper write command.\n");
     return false;
-    exit(0);
+  }
+  return true;
+}
+
+bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt) {
+  const int numArgsNeeded = 2;
+  int greaterThanVal = 0;
+  int numArgsRead;
+
+  numArgsRead = scanf(" %c %d", (addChar), (addInt));
+  if (!isValidFormat(numArgsRead, numArgsNeeded) ||
+      (!(*addChar == 'r')) ||
+      (!(*addChar == 'c'))) {
+    printf("Improper add command.\n");
+    return false;
+  }else{
+    if(*addChar== 'r'){
+      if (!isValidFormat(numArgsRead, numArgsNeeded) ||
+          (!(*addInt >= greaterThanVal)) ||
+          (!(*addInt < drawingCanvas->numRows))) {
+        printf("Improper add command.\n");
+        return false;
+      }
+    }else{
+      if (!isValidFormat(numArgsRead, numArgsNeeded) ||
+          (!(*addInt >= greaterThanVal)) ||
+          (!(*addInt < drawingCanvas->numCols))) {
+        printf("Improper add command.\n");
+        return false;
+      }
+    }
   }
   return true;
 }
