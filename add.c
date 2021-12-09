@@ -20,7 +20,7 @@ canvas* add_to_canvas(canvas* old_canvas, int add_index, bool add_row) {
     //copies the old canvas into the new canvas row by row or column by column,
     //skipping the new row/column as needed.
     if (add_row) {
-        for (int i = 0; i < new_canvas->numRows; ++i) {
+        for (int i = 0; i < old_canvas->numRows; ++i) {
         if (i < add_index) {
           copy_row(old_canvas, new_canvas, i, i);
         } else {
@@ -28,7 +28,7 @@ canvas* add_to_canvas(canvas* old_canvas, int add_index, bool add_row) {
         }
       }
     } else {
-        for (int i = 0; i < new_canvas->numCols; ++i) {
+        for (int i = 0; i < old_canvas->numCols; ++i) {
         if (i < add_index) {
           copy_column(old_canvas, new_canvas, i, i);
         } else {
