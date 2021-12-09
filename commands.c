@@ -12,6 +12,7 @@
 #include "write.h"
 #include "delete.h"
 #include "save.h"
+#include "load.h"
 
 bool correctNumArgs(int argc) {
   if (argc == 3) {
@@ -77,6 +78,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
     bool delBool = false;
 
     char saveFileName[100];
+    char loadFileName[100];
     printf("Enter your command: ");
     scanf(" %c", &commandLetter);
     switch (commandLetter) {
@@ -133,6 +135,8 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
         break;
       case 'l':
   			//(l)oad
+        scanf(" %s", loadFileName);
+        load_canvas(drawingCanvas, loadFileName);
         printOutCanvas(drawingCanvas);
         break;
       default:
