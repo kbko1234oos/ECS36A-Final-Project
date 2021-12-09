@@ -106,7 +106,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
     case 'd':
 			//(d)elete
       if(delValidation(drawingCanvas, &delChar, &delInt) ){
-				delete_from_canvas(drawingCanvas, delChar, delInt);
+				drawingCanvas = delete_from_canvas(drawingCanvas, delChar, delInt);
 			}
       printOutCanvas(drawingCanvas);
       break;
