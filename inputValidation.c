@@ -20,20 +20,18 @@ bool isValidFormat(const int numArgsRead, const int numArgsNeed) {
   return formatIsGood;
 }
 
-bool eraseValidation(point* erasePoint){
+bool eraseValidation(point* erasePoint) {
   const int numArgsNeeded = 2;
   int greaterThanVal = 0;
   int numArgsRead;
-  printf("1\n");
-    numArgsRead = scanf(" %d %d", &(erasePoint->x), &(erasePoint->y) );
-    printf("1\n");
+  numArgsRead = scanf(" %d %d", &(erasePoint->x), &(erasePoint->y));
 
-    if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-        (!(erasePoint->x >= greaterThanVal)) ||
-        (!(erasePoint->y >= greaterThanVal))) {
-      printf("Invalid formatting. Ending program.\n");
-      return false;
-      exit(0);
-    }
+  if (!isValidFormat(numArgsRead, numArgsNeeded) ||
+      (!(erasePoint->x >= greaterThanVal)) ||
+      (!(erasePoint->y >= greaterThanVal))) {
+    printf("Invalid formatting. Ending program.\n");
+    return false;
+    exit(0);
+  }
   return true;
 }

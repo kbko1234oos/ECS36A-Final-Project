@@ -64,7 +64,6 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
 			//(e)rase
       erasePoint = (point*)calloc(1, sizeof(point));
 			if(eraseValidation(erasePoint) ){
-				printf("erasing");
 				erase_char(drawingCanvas, erasePoint->x, erasePoint->y);
 			}
 			printOutCanvas(drawingCanvas);
