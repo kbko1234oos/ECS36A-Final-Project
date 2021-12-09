@@ -7,6 +7,7 @@
 #include "add.h"
 #include "write.h"
 #include "erase.h"
+#include "free.h"
 
 int main(int argc, char** argv){
     canvas* drawingCanvas = (canvas*)calloc(1, sizeof(canvas));
@@ -33,8 +34,6 @@ int main(int argc, char** argv){
     printOutCanvas(drawingCanvas);
 
     askAndExecute_for_command_type(drawingCanvas);
-
-
-
+    free_canvas(drawingCanvas);
     return 0;
 }

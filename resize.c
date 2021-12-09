@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "resize.h"
 #include "canvas.h"
+#include "free.h"
 
 canvas* resize_canvas(canvas* old_canvas, int input_row, int input_col) {
     canvas* new_canvas = (canvas*)calloc(1, sizeof(canvas));
@@ -9,6 +10,7 @@ canvas* resize_canvas(canvas* old_canvas, int input_row, int input_col) {
     new_canvas->blankChar = '*';
     makeCanvas(new_canvas);
     copy_canvas(old_canvas, new_canvas, input_row, input_col);
+    free_canvas(old_canvas);
     return new_canvas;
 }
 

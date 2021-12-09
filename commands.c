@@ -3,7 +3,6 @@
 #include <ctype.h>
 
 #include "commands.h"
-
 #include "canvas.h"
 #include "erase.h"
 #include "inputValidation.h"
@@ -12,6 +11,7 @@
 #include "write.h"
 #include "delete.h"
 #include "save.h"
+#include "free.h"
 
 bool correctNumArgs(int argc) {
   if (argc == 3) {
@@ -81,6 +81,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
     switch (commandLetter) {
       case 'q':
         //(q)uit DONE
+        free_canvas(drawingCanvas);
         exit(0);
       case 'h':
         //(h)elp DONE
@@ -94,6 +95,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
   				write_line(drawingCanvas, writeLine);
   			}
         printOutCanvas(drawingCanvas);
+        free_line(writeLine);
         break;
       case 'e':
   			//(e)rase
@@ -102,6 +104,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
   				erase_char(drawingCanvas, erasePoint->x, erasePoint->y);
   			}
   			printOutCanvas(drawingCanvas);
+        free(erasePoint);
         break;
       case 'r':
   			//(r)esize

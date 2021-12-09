@@ -3,6 +3,7 @@
 #include "add.h"
 #include "canvas.h"
 #include "resize.h"
+#include "free.h"
 
 canvas* add_to_canvas(canvas* old_canvas, int add_index, bool add_row) {
     //Makes a new canvas with the correct size for adding a row or column
@@ -37,6 +38,7 @@ canvas* add_to_canvas(canvas* old_canvas, int add_index, bool add_row) {
         }
       }
     }
+    free_canvas(old_canvas);
     return new_canvas;
 }
 
