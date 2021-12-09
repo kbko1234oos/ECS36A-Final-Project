@@ -23,14 +23,15 @@ bool correctNumArgs(int argc) {
   return false;
 }
 
-bool argvInputIsValid(char c1, char c2) {
-  if (isdigit(c1)) {
-    if(c1 < 1){
+bool argvInputIsValid(char* c1, char* c2) {
+
+  if (isdigit(*c1)) {
+    if(atoi(c1) < 1){
       printf("The number of rows is less than 1.\nMaking default board of 10 X 10.\n");
       return false;
     }
-		if(isdigit(c2)) {
-      if(c2 < 1){
+		if(isdigit(*c2)) {
+      if(atoi(c2) < 1){
         printf("The number of columns is less than 1.\nMaking default board of 10 X 10.\n");
         return false;
       }
@@ -75,7 +76,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
     int delInt;
     bool delBool = false;
 
-    char* saveFileName = NULL;
+    char saveFileName[100];
     printf("Enter your command: ");
     scanf(" %c", &commandLetter);
     switch (commandLetter) {
@@ -126,7 +127,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
         break;
       case 's':
   			//(s)ave
-        scanf("%s", saveFileName);
+        scanf(" %s", saveFileName);
         save_canvas(drawingCanvas, saveFileName);
         printOutCanvas(drawingCanvas);
         break;

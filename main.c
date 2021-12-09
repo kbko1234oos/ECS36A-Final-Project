@@ -13,7 +13,7 @@ int main(int argc, char** argv){
     drawingCanvas->blankChar = '*';
 
     //Read in and input validate argc/argv
-    if(correctNumArgs(argc) && argvInputIsValid(*argv[1], *argv[2])){
+    if(correctNumArgs(argc) && argvInputIsValid(argv[1], argv[2])){
         //make canvas size customizable IF correctNumberOfArguments and argsAreInts
         drawingCanvas->numRows = atoi(argv[1]);
         drawingCanvas->numCols = atoi(argv[2]);
