@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "save.h"
 #include "canvas.h"
 
 #ifndef SAVE_H
