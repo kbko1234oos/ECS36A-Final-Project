@@ -1,7 +1,9 @@
 #ifndef INPUTVALIDATION_H
 #define INPUTVALIDATION_H
 	#include "inputValidation.h"
+	#include "write.h"
+
   bool isValidFormat(const int numArgsRead, const int numArgsNeed);
-  double getDouble(const char* prompt, int greaterThanVal, bool repeatQuestion);
+	bool eraseValidation(point* erasePoint);
 
 #endif

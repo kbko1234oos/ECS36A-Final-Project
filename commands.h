@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "canvas.h"
+#include "write.h"
+
 
 
 #ifndef COMMANDS_H

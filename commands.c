@@ -4,6 +4,8 @@
 #include "commands.h"
 #include "canvas.h"
 #include "erase.h"
+#include "inputValidation.h"
+#include "write.h"
 
 bool correctNumArgs(int argc) {
   if (argc == 3) {
@@ -26,42 +28,6 @@ bool argvInputIsValid(char c1, char c2) {
 	}
 }
 
-bool validateNumArgs_and_Int(int** arrayOfArgs, int* numArgs, int reqNumArgs, char* command){
-	char buffer[100];
-	//int buffer;
-	int i = 0;
-
-	while(i < 100 && (scanf(" %c", &buffer[i]) == 1)){
-		printf("%d\n", i);
-
-		if(buffer[i]=='\n'){
-			break;
-		}
-
-
-		i++;
-	}
-
-	if(i!=reqNumArgs){
-		printf("Improper %s command.\n", command);
-		return false;
-	}
-	/*
-	for(int j = 0; j< reqNumArgs; ++j){
-		if( isdigit(buffer[j]) ){
-			(*arrayOfArgs)[j]=atoi(buffer);
-		}else{
-			*numArgs = 0;
-			printf("Improper %s command.\n", command);
-			return false;
-		}
-	}
-	*/
-
-
-	return true;
-}
-
 void print_help() {
   printf("Commands:\n");
   printf("Help: h\n");
@@ -77,8 +43,7 @@ void print_help() {
 
 void askAndExecute_for_command_type(canvas* drawingCanvas) {
   char commandLetter;
-	int* arrayOfArgs;
-	int numArguments;
+
 
   printf("Enter your command: ");
   scanf(" %c", &commandLetter);
@@ -96,9 +61,10 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       break;
     case 'e':
 			//(e)rase
-			if(validateNumArgs_and_Int(&arrayOfArgs, &numArguments, 2, "erase")){
+			point* erasePoint = (point*)calloc(1, sizeof(point));
+			if(eraseValidation(erasePoint) ){
 				printf("erasing");
-				erase_char(drawingCanvas, arrayOfArgs[0], arrayOfArgs[1]);
+				erase_char(drawingCanvas, erasePoint->x, erasePoint->y);
 			}
 			printOutCanvas(drawingCanvas);
       break;
