@@ -64,7 +64,6 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
   bool delBool = false;
 
   char* saveFileName = NULL;
-
   printf("Enter your command: ");
   scanf(" %c", &commandLetter);
   switch (commandLetter) {
