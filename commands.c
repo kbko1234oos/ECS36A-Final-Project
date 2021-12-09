@@ -85,6 +85,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       break;
     case 'a':
 			//(a)dd
+      
       printOutCanvas(drawingCanvas);
       break;
     case 'd':
