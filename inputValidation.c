@@ -90,14 +90,14 @@ bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt, bool* addB
     if(*addChar== 'r'){
       *addBool = true;
       if ((!(*addInt >= greaterThanVal)) ||
-          (!(*addInt < drawingCanvas->numRows))) {
+          (!(*addInt < drawingCanvas->numRows+1))) {
         printf("Improper add command.\n");
         return false;
       }
     }else if(*addChar== 'c'){
       *addBool = false;
       if ((!(*addInt >= greaterThanVal)) ||
-          (!(*addInt < drawingCanvas->numCols))) {
+          (!(*addInt < drawingCanvas->numCols+1))) {
         printf("Improper add command.\n");
         return false;
       }

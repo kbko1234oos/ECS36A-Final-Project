@@ -16,20 +16,31 @@
 bool correctNumArgs(int argc) {
   if (argc == 3) {
     return true;
+  }else if(argc > 3){
+    printf("Wrong number of command line arguements entered.\nUsage: ./paint.out [num_rows num_cols]\nMaking default board of 10 X 10.\n");
   }
+  //printf("Wrong number of command line arguements entered.\nUsage: ./paint.out [num_rows num_cols]\nMaking default board of 10 X 10.\n");
   return false;
 }
 
 bool argvInputIsValid(char c1, char c2) {
   if (isdigit(c1)) {
+    if(c1 < 1){
+      printf("The number of rows is less than 1.\nMaking default board of 10 X 10.\n");
+      return false;
+    }
 		if(isdigit(c2)) {
+      if(c2 < 1){
+        printf("The number of columns is less than 1.\nMaking default board of 10 X 10.\n");
+        return false;
+      }
 			return true;
 		}else{
-			printf("The number of columns is not an integer.\n");
+			printf("The number of columns is not an integer.\nMaking default board of 10 X 10.\n");
 			return false;
 		}
   }else{
-		printf("The number of rows is not an integer.\n");
+		printf("The number of rows is not an integer.\nMaking default board of 10 X 10.\n");
 		return false;
 	}
 }
@@ -48,83 +59,85 @@ void print_help() {
 }
 
 void askAndExecute_for_command_type(canvas* drawingCanvas) {
-  char commandLetter;
+  do{
+    char commandLetter;
 
-  point* erasePoint;
-  line* writeLine;
+    point* erasePoint;
+    line* writeLine;
 
-  int resizeX, resizeY;
+    int resizeX, resizeY;
 
-  char addChar;
-  int addInt;
-  bool addBool = false;
+    char addChar;
+    int addInt;
+    bool addBool = false;
 
-  char delChar;
-  int delInt;
-  bool delBool = false;
+    char delChar;
+    int delInt;
+    bool delBool = false;
 
-  char* saveFileName = NULL;
-  printf("Enter your command: ");
-  scanf(" %c", &commandLetter);
-  switch (commandLetter) {
-    case 'q':
-      //(q)uit DONE
-      exit(0);
-    case 'h':
-      //(h)elp DONE
-      print_help();
-      printOutCanvas(drawingCanvas);
-      break;
-    case 'w':
-			//(w)write
-      writeLine = (line*)calloc(1, sizeof(line));
-			if(writeValidation(drawingCanvas, writeLine) ){
-				write_line(drawingCanvas, writeLine);
-			}
-      printOutCanvas(drawingCanvas);
-      break;
-    case 'e':
-			//(e)rase
-      erasePoint = (point*)calloc(1, sizeof(point));
-			if(eraseValidation(drawingCanvas, erasePoint) ){
-				erase_char(drawingCanvas, erasePoint->x, erasePoint->y);
-			}
-			printOutCanvas(drawingCanvas);
-      break;
-    case 'r':
-			//(r)esize
-			if(resizeValidation(drawingCanvas, &resizeX, &resizeY) ){
-				drawingCanvas = resize_canvas(drawingCanvas, resizeX, resizeY);
-			}
-      printOutCanvas(drawingCanvas);
-      break;
-    case 'a':
-			//(a)dd
-      if(addValidation(drawingCanvas, &addChar, &addInt, &addBool) ){
-				drawingCanvas = add_to_canvas(drawingCanvas, addInt, addBool);
-			}
-      printOutCanvas(drawingCanvas);
-      break;
-    case 'd':
-			//(d)elete
-      if(delValidation(drawingCanvas, &delChar, &delInt, &delBool) ){
-				drawingCanvas = delete_from_canvas(drawingCanvas, delInt, delBool);
-			}
-      printOutCanvas(drawingCanvas);
-      break;
-    case 's':
-			//(s)ave
-      scanf("%s", saveFileName);
-      save_canvas(drawingCanvas, saveFileName);
-      printOutCanvas(drawingCanvas);
-      break;
-    case 'l':
-			//(l)oad
-      printOutCanvas(drawingCanvas);
-      break;
-    default:
-      printf("Unrecognized command. Type h for help.\n");
-			printOutCanvas(drawingCanvas);
-      break;
-  }
+    char* saveFileName = NULL;
+    printf("Enter your command: ");
+    scanf(" %c", &commandLetter);
+    switch (commandLetter) {
+      case 'q':
+        //(q)uit DONE
+        exit(0);
+      case 'h':
+        //(h)elp DONE
+        print_help();
+        printOutCanvas(drawingCanvas);
+        break;
+      case 'w':
+  			//(w)write
+        writeLine = (line*)calloc(1, sizeof(line));
+  			if(writeValidation(drawingCanvas, writeLine) ){
+  				write_line(drawingCanvas, writeLine);
+  			}
+        printOutCanvas(drawingCanvas);
+        break;
+      case 'e':
+  			//(e)rase
+        erasePoint = (point*)calloc(1, sizeof(point));
+  			if(eraseValidation(drawingCanvas, erasePoint) ){
+  				erase_char(drawingCanvas, erasePoint->x, erasePoint->y);
+  			}
+  			printOutCanvas(drawingCanvas);
+        break;
+      case 'r':
+  			//(r)esize
+  			if(resizeValidation(drawingCanvas, &resizeX, &resizeY) ){
+  				drawingCanvas = resize_canvas(drawingCanvas, resizeX, resizeY);
+  			}
+        printOutCanvas(drawingCanvas);
+        break;
+      case 'a':
+  			//(a)dd
+        if(addValidation(drawingCanvas, &addChar, &addInt, &addBool) ){
+  				drawingCanvas = add_to_canvas(drawingCanvas, addInt, addBool);
+  			}
+        printOutCanvas(drawingCanvas);
+        break;
+      case 'd':
+  			//(d)elete
+        if(delValidation(drawingCanvas, &delChar, &delInt, &delBool) ){
+  				drawingCanvas = delete_from_canvas(drawingCanvas, delInt, delBool);
+  			}
+        printOutCanvas(drawingCanvas);
+        break;
+      case 's':
+  			//(s)ave
+        scanf("%s", saveFileName);
+        save_canvas(drawingCanvas, saveFileName);
+        printOutCanvas(drawingCanvas);
+        break;
+      case 'l':
+  			//(l)oad
+        printOutCanvas(drawingCanvas);
+        break;
+      default:
+        printf("Unrecognized command. Type h for help.\n");
+  			printOutCanvas(drawingCanvas);
+        break;
+    }
+  }while(true);
 }

@@ -31,9 +31,9 @@ int main(int argc, char** argv){
 
     //Ask for command
     printOutCanvas(drawingCanvas);
-    do {
-        askAndExecute_for_command_type(drawingCanvas);
-    }while(true);
+
+    askAndExecute_for_command_type(drawingCanvas);
+
 
 
     return 0;
