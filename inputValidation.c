@@ -61,7 +61,7 @@ bool writeValidation(canvas* drawingCanvas, line* writeLine) {
   const int numArgsNeeded = 4;
   int greaterThanVal = 0;
   int numArgsRead;
-  numArgsRead = scanf(" %d %d %d %d", &(writeLine->p1.x), &(writeLine->p1.y), &(writeLine->p2.x), &(writeLine->p2.y));
+  numArgsRead = scanf(" %d %d %d %d", &(writeLine->p1.y), &(writeLine->p1.x), &(writeLine->p2.y), &(writeLine->p2.x));
 
   if (!isValidFormat(numArgsRead, numArgsNeeded) ||
       //(!(abs(writeLine->p1.x-writeLine->p2.x)==abs(writeLine->p1.y-writeLine->p2.y) )) ||
