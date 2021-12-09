@@ -47,9 +47,7 @@ bool resizeValidation(canvas* drawingCanvas, int* resizeX, int* resizeY) {
   numArgsRead = scanf(" %d %d", (resizeX), (resizeY));
   if (!isValidFormat(numArgsRead, numArgsNeeded) ||
       (!(*resizeX >= greaterThanVal)) ||
-      (!(*resizeY >= greaterThanVal)) ||
-      (!(*resizeX < drawingCanvas->numCols)) ||
-      (!(*resizeY < drawingCanvas->numRows))) {
+      (!(*resizeY >= greaterThanVal)) ) {
     printf("Improper resize command.\n");
     return false;
   }
@@ -90,15 +88,13 @@ bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt) {
     return false;
   }else{
     if(*addChar== 'r'){
-      if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-          (!(*addInt >= greaterThanVal)) ||
+      if ((!(*addInt >= greaterThanVal)) ||
           (!(*addInt < drawingCanvas->numRows))) {
         printf("Improper add command.\n");
         return false;
       }
     }else if(*addChar== 'c'){
-      if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-          (!(*addInt >= greaterThanVal)) ||
+      if ((!(*addInt >= greaterThanVal)) ||
           (!(*addInt < drawingCanvas->numCols))) {
         printf("Improper add command.\n");
         return false;
@@ -122,15 +118,13 @@ bool delValidation(canvas* drawingCanvas, char* delChar, int* delInt) {
     return false;
   }else{
     if(*delChar== 'r'){
-      if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-          (!(*delInt >= greaterThanVal)) ||
+      if ((!(*delInt >= greaterThanVal)) ||
           (!(*delInt < drawingCanvas->numRows))) {
         printf("Improper delete command.\n");
         return false;
       }
     }else if(*delChar== 'c'){
-      if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-          (!(*delInt >= greaterThanVal)) ||
+      if ((!(*delInt >= greaterThanVal)) ||
           (!(*delInt < drawingCanvas->numCols))) {
         printf("Improper delete command.\n");
         return false;

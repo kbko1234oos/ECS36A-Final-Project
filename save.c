@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "save.h"
 #include "canvas.h"
 
 void save_canvas(canvas* drawingCanvas, char* file_name) {
