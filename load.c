@@ -3,8 +3,8 @@
 #include "canvas.h"
 
 canvas* load_canvas(canvas* input_canvas, FILE* input_file) {
-  canvas* input_canvas = (canvas*)calloc(1, sizeof(canvas));
-  fscanf(input_file, "%d %d", input_canvas->numRows, input_canvas->numCols);
+  input_canvas = (canvas*)calloc(1, sizeof(canvas));
+  fscanf(input_file, "%d %d", &input_canvas->numRows, &input_canvas->numCols);
   input_canvas->blankChar = '*';
   makeCanvas(input_canvas);
   for (int i = 0; i < input_canvas->numRows; ++i) {
