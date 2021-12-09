@@ -6,6 +6,7 @@
 #include "inputValidation.h"
 #include "write.h"
 #include "canvas.h"
+#include "add.h"
 
 // COPIED FROM NOTES ON G-DRIVE
 bool isValidFormat(const int numArgsRead, const int numArgsNeed) {

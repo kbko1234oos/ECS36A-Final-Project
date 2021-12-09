@@ -49,6 +49,8 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
   point* erasePoint;
   line* writeLine;
   int resizeX, resizeY;
+  char addChar;
+  int addInt;
 
   printf("Enter your command: ");
   scanf(" %c", &commandLetter);
@@ -85,7 +87,9 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       break;
     case 'a':
 			//(a)dd
-      
+      if(addValidation(drawingCanvas, &addChar, &addInt) ){
+				add_to_canvas(drawingCanvas, addChar, addInt);
+			}
       printOutCanvas(drawingCanvas);
       break;
     case 'd':
