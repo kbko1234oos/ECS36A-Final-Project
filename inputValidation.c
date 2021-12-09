@@ -85,25 +85,27 @@ bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt) {
   int numArgsRead;
 
   numArgsRead = scanf(" %c %d", (addChar), (addInt));
-  if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-      (!(*addChar == 'r')) ) {
-    printf("AImproper add command.\n");
+  if (!isValidFormat(numArgsRead, numArgsNeeded)) {
+    printf("Improper add command.\n");
     return false;
   }else{
     if(*addChar== 'r'){
       if (!isValidFormat(numArgsRead, numArgsNeeded) ||
           (!(*addInt >= greaterThanVal)) ||
           (!(*addInt < drawingCanvas->numRows))) {
-        printf("BImproper add command.\n");
+        printf("Improper add command.\n");
         return false;
       }
     }else if(*addChar== 'c'){
       if (!isValidFormat(numArgsRead, numArgsNeeded) ||
           (!(*addInt >= greaterThanVal)) ||
           (!(*addInt < drawingCanvas->numCols))) {
-        printf("CImproper add command.\n");
+        printf("Improper add command.\n");
         return false;
       }
+    }else{
+      printf("Improper add command.\n");
+      return false;
     }
   }
   return true;
@@ -115,9 +117,7 @@ bool delValidation(canvas* drawingCanvas, char* delChar, int* delInt) {
   int numArgsRead;
 
   numArgsRead = scanf(" %c %d", (delChar), (delInt));
-  if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-      (!(*delChar == 'r')) ||
-      (!(*delChar == 'c')) ) {
+  if (!isValidFormat(numArgsRead, numArgsNeeded)) {
     printf("Improper delete command.\n");
     return false;
   }else{
@@ -128,13 +128,16 @@ bool delValidation(canvas* drawingCanvas, char* delChar, int* delInt) {
         printf("Improper delete command.\n");
         return false;
       }
-    }else{
+    }else if(*delChar== 'c'){
       if (!isValidFormat(numArgsRead, numArgsNeeded) ||
           (!(*delInt >= greaterThanVal)) ||
           (!(*delInt < drawingCanvas->numCols))) {
         printf("Improper delete command.\n");
         return false;
       }
+    }else{
+      printf("Improper delete command.\n");
+      return false;
     }
   }
   return true;
