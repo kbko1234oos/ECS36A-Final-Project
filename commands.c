@@ -139,7 +139,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       case 'l':
   			//(l)oad
         scanf(" %s", loadFileName);
-        load_canvas(drawingCanvas, loadFileName);
+        drawingCanvas = load_canvas(drawingCanvas, loadFileName);
         printOutCanvas(drawingCanvas);
         break;
       default:
