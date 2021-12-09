@@ -1,5 +1,5 @@
-paint.out: main.o commands.o canvas.o resize.o add.o delete.o write.o erase.o inputValidation.o
-	gcc -g -Wall -Werror -o paint.out main.o commands.o canvas.o resize.o add.o delete.o write.o erase.o inputValidation.o
+paint.out: main.o commands.o canvas.o resize.o add.o delete.o write.o erase.o inputValidation.o save.o
+	gcc -g -Wall -Werror -o paint.out main.o commands.o canvas.o resize.o add.o delete.o write.o erase.o inputValidation.o save.o
 
 main.o: main.c commands.h
 	gcc -g -Wall -Werror -c main.c
@@ -27,6 +27,10 @@ erase.o: erase.c canvas.h
 
 inputValidation.o: inputValidation.c write.h canvas.h add.h
 	gcc -g -Wall -Werror -c inputValidation.c
+
+save.o: save.c
+	gcc -g -Wall -Werror -c save.c
+
 
 clean:
 	rm -rf *.o *.out

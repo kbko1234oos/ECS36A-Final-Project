@@ -1,10 +1,18 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <ctype.h>
+
 #include "canvas.h"
+#include "erase.h"
+#include "inputValidation.h"
 #include "write.h"
 #include "resize.h"
+#include "write.h"
 #include "delete.h"
+#include "save.h"
+
+
+
 
 #ifndef COMMANDS_H
 #define COMMANDS_H
