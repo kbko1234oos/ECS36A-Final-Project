@@ -44,6 +44,7 @@ void print_help() {
 void askAndExecute_for_command_type(canvas* drawingCanvas) {
   char commandLetter;
 
+  point* erasePoint;
 
   printf("Enter your command: ");
   scanf(" %c", &commandLetter);
@@ -61,7 +62,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       break;
     case 'e':
 			//(e)rase
-      point* erasePoint = (point*)calloc(1, sizeof(point));
+      erasePoint = (point*)calloc(1, sizeof(point));
 			if(eraseValidation(erasePoint) ){
 				printf("erasing");
 				erase_char(drawingCanvas, erasePoint->x, erasePoint->y);

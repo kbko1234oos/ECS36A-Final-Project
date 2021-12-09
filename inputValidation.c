@@ -25,12 +25,12 @@ bool eraseValidation(point* erasePoint){
   int greaterThanVal = 0;
   int numArgsRead;
   printf("1\n");
-    numArgsRead = scanf(" %d %d", &(point->x), &(point->y);
+    numArgsRead = scanf(" %d %d", &(erasePoint->x), &(erasePoint->y) );
     printf("1\n");
 
     if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-        (!(point->x >= greaterThanVal)) ||
-        (!(point->y >= greaterThanVal))) {
+        (!(erasePoint->x >= greaterThanVal)) ||
+        (!(erasePoint->y >= greaterThanVal))) {
       printf("Invalid formatting. Ending program.\n");
       return false;
       exit(0);
