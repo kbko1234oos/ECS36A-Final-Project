@@ -73,6 +73,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
     case 'h':
       //(h)elp DONE
       print_help();
+      printOutCanvas(drawingCanvas);
       break;
     case 'w':
 			//(w)write

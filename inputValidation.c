@@ -71,7 +71,7 @@ bool writeValidation(canvas* drawingCanvas, line* writeLine) {
       (!(writeLine->p1.y < drawingCanvas->numRows)) ||
       (!(writeLine->p2.x < drawingCanvas->numCols)) ||
       (!(writeLine->p2.y < drawingCanvas->numRows))) {
-    printf("Improper write command.\n");
+    printf("Improper draw command.\n");
     return false;
   }
   return true;
