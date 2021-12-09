@@ -2,12 +2,13 @@
 #include "resize.h"
 #include "canvas.h"
 
-void resize_canvas(canvas* old_canvas, int input_row, int input_col) {
+canvas* resize_canvas(canvas* old_canvas, int input_row, int input_col) {
     canvas* new_canvas = (canvas*)calloc(1, sizeof(canvas));
     new_canvas->numRows = input_row;
     new_canvas->numCols = input_col;
     makeCanvas(new_canvas);
     copy_canvas(old_canvas, new_canvas, input_row, input_col);
+    return new_canvas;
 }
 
 void copy_canvas(canvas* old_canvas, canvas* new_canvas, int input_row, int input_col) {
