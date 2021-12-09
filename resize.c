@@ -24,9 +24,9 @@ void copy_canvas(canvas* old_canvas, canvas* new_canvas, int input_row, int inpu
         row_limit = old_canvas->numRows;
     }
     if (input_col < old_canvas->numCols) {
-        row_limit = input_row;
+        col_limit = input_row;
     } else {
-        row_limit = old_canvas->numCols;
+        col_limit = old_canvas->numCols;
     }
 
     for (int i = 0; i < row_limit; ++i) {
