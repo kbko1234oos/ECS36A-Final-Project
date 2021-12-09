@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <ctype.h>
 #include <stdlib.h>
+
 #include "inputValidation.h"
 #include "write.h"
 #include "canvas.h"
