@@ -6,7 +6,7 @@
 #include "add.h"
 #include "free.h"
 
-canvas* delete_from_canvas(canvas* old_canvas, int add_index, bool delete_row) {
+canvas* delete_from_canvas(canvas* old_canvas, int delete_index, bool delete_row) {
 	//Makes a new canvas with the correct size for adding a row or column
 	canvas* new_canvas = (canvas*)calloc(1, sizeof(canvas));
 	new_canvas->blankChar = '*';
@@ -24,7 +24,7 @@ canvas* delete_from_canvas(canvas* old_canvas, int add_index, bool delete_row) {
 	//skipping the new row/column as needed.
 	if (delete_row) {
 		for (int i = 0; i < new_canvas->numRows; ++i) {
-	    if (i < add_index) {
+	    if (i < delete_index) {
 	      copy_row(old_canvas, new_canvas, i, i);
 	    } else {
 	      copy_row(old_canvas, new_canvas,  i + 1, i);
@@ -32,7 +32,7 @@ canvas* delete_from_canvas(canvas* old_canvas, int add_index, bool delete_row) {
 	  }
 	} else {
 		for (int i = 0; i < new_canvas->numCols; ++i) {
-	    if (i < add_index) {
+	    if (i < delete_index) {
 	      copy_column(old_canvas, new_canvas, i, i);
 	    } else {
 	      copy_column(old_canvas, new_canvas, i + 1, i);

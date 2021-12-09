@@ -6,7 +6,7 @@
 void save_canvas(canvas* drawingCanvas, char* file_name) {
   FILE* out_file = NULL;
   out_file = fopen(file_name, "w");
-  if (out_file == NULL) {
+  if (out_file == NULL || out_file == false) {
     printf("Improper save command or file could not be created.\n");
   }
 
