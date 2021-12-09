@@ -5,7 +5,7 @@
 #include "resize.h"
 #include "add.h"
 
-void delete_from_canvas(canvas* old_canvas, int add_index, bool add_row) {
+canvas* delete_from_canvas(canvas* old_canvas, int add_index, bool add_row) {
 	//Makes a new canvas with the correct size for adding a row or column
 	canvas* new_canvas = (canvas*)calloc(1, sizeof(canvas));
 	if (add_row) {
@@ -37,4 +37,5 @@ void delete_from_canvas(canvas* old_canvas, int add_index, bool add_row) {
 	    }
 	  }
 	}
+	return new_canvas;
 }
