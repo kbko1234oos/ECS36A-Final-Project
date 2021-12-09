@@ -86,23 +86,53 @@ bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt) {
 
   numArgsRead = scanf(" %c %d", (addChar), (addInt));
   if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-      (!(*addChar == 'r')) ||
-      (!(*addChar == 'c'))) {
-    printf("Improper add command.\n");
+      (!(*addChar == 'r')) ) {
+    printf("AImproper add command.\n");
     return false;
   }else{
     if(*addChar== 'r'){
       if (!isValidFormat(numArgsRead, numArgsNeeded) ||
           (!(*addInt >= greaterThanVal)) ||
           (!(*addInt < drawingCanvas->numRows))) {
-        printf("Improper add command.\n");
+        printf("BImproper add command.\n");
+        return false;
+      }
+    }else if(*addChar== 'c'){
+      if (!isValidFormat(numArgsRead, numArgsNeeded) ||
+          (!(*addInt >= greaterThanVal)) ||
+          (!(*addInt < drawingCanvas->numCols))) {
+        printf("CImproper add command.\n");
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+bool delValidation(canvas* drawingCanvas, char* delChar, int* delInt) {
+  const int numArgsNeeded = 2;
+  int greaterThanVal = 0;
+  int numArgsRead;
+
+  numArgsRead = scanf(" %c %d", (delChar), (delInt));
+  if (!isValidFormat(numArgsRead, numArgsNeeded) ||
+      (!(*delChar == 'r')) ||
+      (!(*delChar == 'c')) ) {
+    printf("Improper delete command.\n");
+    return false;
+  }else{
+    if(*delChar== 'r'){
+      if (!isValidFormat(numArgsRead, numArgsNeeded) ||
+          (!(*delInt >= greaterThanVal)) ||
+          (!(*delInt < drawingCanvas->numRows))) {
+        printf("Improper delete command.\n");
         return false;
       }
     }else{
       if (!isValidFormat(numArgsRead, numArgsNeeded) ||
-          (!(*addInt >= greaterThanVal)) ||
-          (!(*addInt < drawingCanvas->numCols))) {
-        printf("Improper add command.\n");
+          (!(*delInt >= greaterThanVal)) ||
+          (!(*delInt < drawingCanvas->numCols))) {
+        printf("Improper delete command.\n");
         return false;
       }
     }

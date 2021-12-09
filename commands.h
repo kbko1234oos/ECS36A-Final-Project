@@ -4,6 +4,7 @@
 #include "canvas.h"
 #include "write.h"
 #include "resize.h"
+#include "delete.h"
 
 #ifndef COMMANDS_H
 #define COMMANDS_H

@@ -8,6 +8,7 @@
 #include "write.h"
 #include "resize.h"
 #include "write.h"
+#include "delete.h"
 
 bool correctNumArgs(int argc) {
   if (argc == 3) {
@@ -48,9 +49,14 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
 
   point* erasePoint;
   line* writeLine;
+
   int resizeX, resizeY;
+
   char addChar;
   int addInt;
+
+  char delChar;
+  int delInt;
 
   printf("Enter your command: ");
   scanf(" %c", &commandLetter);
@@ -88,12 +94,15 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
     case 'a':
 			//(a)dd
       if(addValidation(drawingCanvas, &addChar, &addInt) ){
-				add_to_canvas(drawingCanvas, addChar, addInt);
+				drawingCanvas = add_to_canvas(drawingCanvas, addChar, addInt);
 			}
       printOutCanvas(drawingCanvas);
       break;
     case 'd':
 			//(d)elete
+      if(delValidation(drawingCanvas, &delChar, &delInt) ){
+				delete_from_canvas(drawingCanvas, delChar, delInt);
+			}
       printOutCanvas(drawingCanvas);
       break;
     case 's':
