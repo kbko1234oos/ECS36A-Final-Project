@@ -8,6 +8,7 @@
 canvas* delete_from_canvas(canvas* old_canvas, int add_index, bool delete_row) {
 	//Makes a new canvas with the correct size for adding a row or column
 	canvas* new_canvas = (canvas*)calloc(1, sizeof(canvas));
+	new_canvas->blankChar = '*';
 	if (delete_row) {
 		new_canvas->numRows = old_canvas->numRows - 1;
 		new_canvas->numCols = old_canvas->numCols;

@@ -7,6 +7,7 @@
 canvas* add_to_canvas(canvas* old_canvas, int add_index, bool add_row) {
     //Makes a new canvas with the correct size for adding a row or column
     canvas* new_canvas = (canvas*)calloc(1, sizeof(canvas));
+    new_canvas->blankChar = '*';
     if (add_row) {
         new_canvas->numRows = old_canvas->numRows + 1;
         new_canvas->numCols = old_canvas->numCols;
@@ -23,9 +24,9 @@ canvas* add_to_canvas(canvas* old_canvas, int add_index, bool add_row) {
         for (int i = 0; i < old_canvas->numRows; ++i) {
         if (i < add_index) {
           copy_row(old_canvas, new_canvas, i, i);
-        } else {
+        } else if (i == add_index) {
           copy_row(old_canvas, new_canvas, i, i + 1);
-        }
+        } 
       }
     } else {
         for (int i = 0; i < old_canvas->numCols; ++i) {

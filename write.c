@@ -15,7 +15,7 @@ void write_line(canvas* drawing_canvas, line* input_line) {
   } else if (x_diff == 0) {
     input_line->type = vert;
   } else {
-    printf("Improper write command.\n");
+    printf("Cannot draw the line as it is not straight.\n");
     return;
   }
 
