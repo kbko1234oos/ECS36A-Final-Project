@@ -9,7 +9,7 @@ canvas* load_canvas(canvas* input_canvas, char* file_name) {
     printf("Could not open file %s.\n", file_name);
   }
 
-  input_canvas = (canvas*)calloc(1, sizeof(canvas));
+  input_canvas = (canvas*)realloc(input_canvas, 1 * sizeof(canvas));
   input_canvas->blankChar = '*';
   get_dimensions(input_file, &(input_canvas->numRows), &(input_canvas->numCols));
   makeCanvas(input_canvas);
