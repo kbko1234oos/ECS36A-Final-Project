@@ -3,6 +3,10 @@
 #include <ctype.h>
 #include "commands.h"
 #include "canvas.h"
+#include "erase.h"
+#include "inputValidation.h"
+#include "write.h"
+#include "resize.h"
 
 bool correctNumArgs(int argc) {
   if (argc == 3) {
@@ -25,11 +29,6 @@ bool argvInputIsValid(char c1, char c2) {
 	}
 }
 
-bool validateInputs(int* arrayOfArgs){
-
- return false;
-}
-
 void print_help() {
   printf("Commands:\n");
   printf("Help: h\n");
@@ -45,8 +44,9 @@ void print_help() {
 
 void askAndExecute_for_command_type(canvas* drawingCanvas) {
   char commandLetter;
-	int* arrayOfArgs;
-	int numArguments;
+
+  point* erasePoint;
+  int resizeX, resizeY;
 
   printf("Enter your command: ");
   scanf(" %c", &commandLetter);
@@ -64,12 +64,17 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       break;
     case 'e':
 			//(e)rase
-			validateInputs(arrayOfArgs, num);
-			erase_char(drawingCanvas, arrayOfArgs[0], arrayOfArgs[1])
-      printOutCanvas(drawingCanvas);
+      erasePoint = (point*)calloc(1, sizeof(point));
+			if(eraseValidation(drawingCanvas, erasePoint) ){
+				erase_char(drawingCanvas, erasePoint->x, erasePoint->y);
+			}
+			printOutCanvas(drawingCanvas);
       break;
     case 'r':
 			//(r)esize
+			if(resizeValidation(drawingCanvas, &resizeX, &resizeY) ){
+				resize_canvas(drawingCanvas, resizeX, resizeY);
+			}
       printOutCanvas(drawingCanvas);
       break;
     case 'a':
