@@ -73,7 +73,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
     case 'r':
 			//(r)esize
 			if(resizeValidation(drawingCanvas, &resizeX, &resizeY) ){
-				resize_canvas(drawingCanvas, resizeX, resizeY);
+				drawingCanvas = resize_canvas(drawingCanvas, resizeX, resizeY);
 			}
       printOutCanvas(drawingCanvas);
       break;
