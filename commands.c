@@ -1,7 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
+
 #include "commands.h"
+
 #include "canvas.h"
 #include "erase.h"
 #include "inputValidation.h"

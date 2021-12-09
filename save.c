@@ -10,7 +10,7 @@ void save_canvas(canvas* drawingCanvas, char* file_name) {
     printf("Improper save command or file could not be created.\n");
   }
 
-  fprintf("%d %d\n", drawingCanvas->numRows, drawingCanvas->numCols);
+  fprintf(out_file, "%d %d\n", drawingCanvas->numRows, drawingCanvas->numCols);
   for (int i = 0; i < drawingCanvas->numRows; ++i) {
     for (int j = 0; j < drawingCanvas->numCols; ++j) {
       fprintf(out_file, " %d", (drawingCanvas->array[i][j]));

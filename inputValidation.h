@@ -4,6 +4,7 @@
 	#include "write.h"
 	#include "canvas.h"
 	#include "add.h"
+	#include "save.h"
 
   bool isValidFormat(const int numArgsRead, const int numArgsNeed);
 	bool eraseValidation(canvas* drawingCanvas, point* erasePoint) ;
