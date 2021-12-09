@@ -7,6 +7,7 @@
 #include "inputValidation.h"
 #include "write.h"
 #include "resize.h"
+#include "write.h"
 
 bool correctNumArgs(int argc) {
   if (argc == 3) {
@@ -46,6 +47,7 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
   char commandLetter;
 
   point* erasePoint;
+  line* writeLine;
   int resizeX, resizeY;
 
   printf("Enter your command: ");
@@ -60,6 +62,10 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       break;
     case 'w':
 			//(w)write
+      writeLine = (line*)calloc(1, sizeof(line));
+			if(writeValidation(drawingCanvas, writeLine) ){
+				write_line(drawingCanvas, writeLine);
+			}
       printOutCanvas(drawingCanvas);
       break;
     case 'e':
