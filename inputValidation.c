@@ -77,7 +77,7 @@ bool writeValidation(canvas* drawingCanvas, line* writeLine) {
   return true;
 }
 
-bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt) {
+bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt, bool* addBool) {
   const int numArgsNeeded = 2;
   int greaterThanVal = 0;
   int numArgsRead;
@@ -88,18 +88,21 @@ bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt) {
     return false;
   }else{
     if(*addChar== 'r'){
+      *addBool = true;
       if ((!(*addInt >= greaterThanVal)) ||
           (!(*addInt < drawingCanvas->numRows))) {
         printf("Improper add command.\n");
         return false;
       }
     }else if(*addChar== 'c'){
+      *addBool = false;
       if ((!(*addInt >= greaterThanVal)) ||
           (!(*addInt < drawingCanvas->numCols))) {
         printf("Improper add command.\n");
         return false;
       }
     }else{
+      *addBool = NULL;
       printf("Improper add command.\n");
       return false;
     }
@@ -107,7 +110,7 @@ bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt) {
   return true;
 }
 
-bool delValidation(canvas* drawingCanvas, char* delChar, int* delInt) {
+bool delValidation(canvas* drawingCanvas, char* delChar, int* delInt, bool* delBool) {
   const int numArgsNeeded = 2;
   int greaterThanVal = 0;
   int numArgsRead;
@@ -123,13 +126,16 @@ bool delValidation(canvas* drawingCanvas, char* delChar, int* delInt) {
         printf("Improper delete command.\n");
         return false;
       }
+      *delBool = true;
     }else if(*delChar== 'c'){
       if ((!(*delInt >= greaterThanVal)) ||
           (!(*delInt < drawingCanvas->numCols))) {
         printf("Improper delete command.\n");
         return false;
       }
+      *delBool = false;
     }else{
+      *delBool = NULL;
       printf("Improper delete command.\n");
       return false;
     }

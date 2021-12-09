@@ -10,8 +10,8 @@
 	bool eraseValidation(canvas* drawingCanvas, point* erasePoint) ;
 	bool resizeValidation(canvas* drawingCanvas, int* resizeX, int* resizeY);
 	bool writeValidation(canvas* drawingCanvas, line* writeLine);
-	bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt);
-	bool delValidation(canvas* drawingCanvas, char* delChar, int* delInt);
+	bool addValidation(canvas* drawingCanvas, char* addChar, int* addInt, bool* addBool);
+	bool delValidation(canvas* drawingCanvas, char* delChar, int* delInt, bool* delBool) ;
 
 
 #endif

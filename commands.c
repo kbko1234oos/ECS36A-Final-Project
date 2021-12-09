@@ -57,9 +57,11 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
 
   char addChar;
   int addInt;
+  bool addBool = false;
 
   char delChar;
   int delInt;
+  bool delBool = false;
 
   char* saveFileName = NULL;
 
@@ -98,15 +100,15 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       break;
     case 'a':
 			//(a)dd
-      if(addValidation(drawingCanvas, &addChar, &addInt) ){
-				drawingCanvas = add_to_canvas(drawingCanvas, addChar, addInt);
+      if(addValidation(drawingCanvas, &addChar, &addInt, &addBool) ){
+				drawingCanvas = add_to_canvas(drawingCanvas, addInt, addBool);
 			}
       printOutCanvas(drawingCanvas);
       break;
     case 'd':
 			//(d)elete
-      if(delValidation(drawingCanvas, &delChar, &delInt) ){
-				drawingCanvas = delete_from_canvas(drawingCanvas, delChar, delInt);
+      if(delValidation(drawingCanvas, &delChar, &delInt, &delBool) ){
+				drawingCanvas = delete_from_canvas(drawingCanvas, delInt, delBool);
 			}
       printOutCanvas(drawingCanvas);
       break;

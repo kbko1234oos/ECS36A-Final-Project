@@ -31,15 +31,15 @@ void fillArrayWithChar(char*** array, int numRows, int numCols,
 
 void printOutCanvas(canvas* drawingCanvas) {
   for (int i = drawingCanvas->numRows - 1; i >= 0; --i) {
-    printf("%d ", i);
+    printf(" %d  ", i);
     for (int j = 0; j < drawingCanvas->numCols; ++j) {
-      printf("%c ", drawingCanvas->array[i][j]);
+      printf("%c  ", drawingCanvas->array[i][j]);
     }
     printf("\n");
   }
-  printf("  ");
+  printf("    ");
   for (int k = 0; k < drawingCanvas->numCols; ++k) {
-    printf("%d ", k);
+    printf("%d  ", k);
   }
   printf("\n");
 }
