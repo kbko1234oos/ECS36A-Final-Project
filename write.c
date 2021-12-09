@@ -2,7 +2,7 @@
 #include "write.h"
 #include "canvas.h"
 
-void write_line(canvas* drawing_canvas, line* input_line, int input) {
+void write_line(canvas* drawing_canvas, line* input_line) {
   int y_diff = input_line->p1.y - input_line->p2.y;
   int x_diff = input_line->p1.x - input_line->p2.x;
 
@@ -27,7 +27,7 @@ void write_line(canvas* drawing_canvas, line* input_line, int input) {
         switch_coords(input_line);
       }
       for (int i = input_line->p1.x; i < input_line->p2.x; ++i) {
-        (drawing_canvas->array)[input][i] = '-';
+        (drawing_canvas->array)[input_line->p1.y][i] = '-';
       }
       break;
     case vert:
@@ -35,7 +35,7 @@ void write_line(canvas* drawing_canvas, line* input_line, int input) {
         switch_coords(input_line);
       }
       for (int i = input_line->p1.y; i < input_line->p2.y; ++i) {
-        (drawing_canvas->array)[i][input] = '|';
+        (drawing_canvas->array)[i][input_line->p1.x] = '|';
       }
       break;
     case pos_diag:

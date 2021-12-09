@@ -17,6 +17,6 @@
     line_type type;
   }line;
 
-  void write_line(canvas* drawing_canvas, line* input_line, int input);
+  void write_line(canvas* drawing_canvas, line* input_line);
   void switch_coords(line* input_line);
 #endif
