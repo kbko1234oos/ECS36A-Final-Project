@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include "commands.h"
 #include "canvas.h"
+#include "erase.h"
 
 bool correctNumArgs(int argc) {
   if (argc == 3) {
@@ -25,9 +26,34 @@ bool argvInputIsValid(char c1, char c2) {
 	}
 }
 
-bool validateInputs(int* arrayOfArgs){
+bool validateNumArgs_and_Int(int** arrayOfArgs, int* numArgs, int reqNumArgs, char* command){
+	char array[100];
+	char* arrayList[100];
+	int i = 0;
+	printf("1\n");
+	while(i < 100 && scanf("%c\n", &array[i]) == 1){
+		i++;
+		*arrayList[i]=array[i];
+	}
+	printf("2\n");
 
- return false;
+	if(i!=reqNumArgs){
+		printf("Improper %s command.\n", command);
+		return false;
+	}
+
+	for(int j = 0; j< reqNumArgs; ++j){
+		if( isdigit(array[j]) ){
+			(*arrayOfArgs)[j]=atoi(arrayList[j]);
+		}else{
+			*numArgs = 0;
+			printf("Improper %s command.\n", command);
+			return false;
+		}
+	}
+
+
+	return true;
 }
 
 void print_help() {
@@ -64,9 +90,10 @@ void askAndExecute_for_command_type(canvas* drawingCanvas) {
       break;
     case 'e':
 			//(e)rase
-			validateInputs(arrayOfArgs, num);
-			erase_char(drawingCanvas, arrayOfArgs[0], arrayOfArgs[1])
-      printOutCanvas(drawingCanvas);
+			if(validateNumArgs_and_Int(&arrayOfArgs, &numArguments, 2, "erase")){
+				erase_char(drawingCanvas, arrayOfArgs[0], arrayOfArgs[1]);
+			}
+			printOutCanvas(drawingCanvas);
       break;
     case 'r':
 			//(r)esize
