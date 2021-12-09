@@ -11,11 +11,8 @@
 #include "write.h"
 #include "delete.h"
 #include "save.h"
-<<<<<<< HEAD
 #include "free.h"
-=======
 #include "load.h"
->>>>>>> 225c128763926e04f6577e370f57a40d4eefcf4d
 
 bool correctNumArgs(int argc) {
   if (argc == 3) {
