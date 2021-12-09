@@ -24,7 +24,7 @@ canvas* add_to_canvas(canvas* old_canvas, int add_index, bool add_row) {
         for (int i = 0; i < old_canvas->numRows; ++i) {
         if (i < add_index) {
           copy_row(old_canvas, new_canvas, i, i);
-        } else if (i == add_index) {
+        } else {
           copy_row(old_canvas, new_canvas, i, i + 1);
         } 
       }
