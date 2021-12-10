@@ -2,14 +2,16 @@
 #include <stdlib.h>
 #include "load.h"
 #include "canvas.h"
+#include "free.h"
 
-canvas* load_canvas(canvas* input_canvas, char* file_name) {
+canvas* load_canvas(canvas* drawingCanvas, char* file_name) {
   FILE* input_file = fopen(file_name, "r");
   if (input_file == NULL) {
     printf("Could not open file %s.\n", file_name);
   }
 
-  input_canvas = (canvas*)realloc(input_canvas, 1 * sizeof(canvas));
+  free_canvas(drawingCanvas);
+  canvas* input_canvas = (canvas*)calloc(1, sizeof(canvas));
   input_canvas->blankChar = '*';
   get_dimensions(input_file, &(input_canvas->numRows), &(input_canvas->numCols));
   makeCanvas(input_canvas);

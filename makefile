@@ -28,7 +28,7 @@ erase.o: erase.c canvas.h
 inputValidation.o: inputValidation.c inputValidation.h write.h canvas.h add.h
 	gcc -g -Wall -Werror -c inputValidation.c
 
-load.o: load.c load.h canvas.h
+load.o: load.c load.h canvas.h free.h
 	gcc -g -Wall -Werror -c load.c
 
 save.o: save.c save.h canvas.h
